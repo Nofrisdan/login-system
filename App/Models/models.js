@@ -11,6 +11,10 @@ export const tb_user = connectDb.define(
       primaryKey: true,
       autoIncrement: true,
     },
+    token: {
+      type: DataTypes.STRING(300),
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING(200),
       allowNull: false,
@@ -20,7 +24,9 @@ export const tb_user = connectDb.define(
       allowNull: false,
     },
   },
+
   {
+    timestamps: true,
     modelName: "tb_user",
   }
 );

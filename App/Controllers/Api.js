@@ -22,9 +22,28 @@ export const get_user = (req, res) => {
   respon(200, res, d);
 };
 
-export const login = (req, res) => {};
+export const register = async (req, res) => {
+  const { email, password } = req.body;
+  const salt = await bcrypt.genSaltSync(10);
+  const emailHash = await bcrypt.hashSync(email, salt);
+  const passHash = await bcrypt.hashSync(password, salt);
 
-export const register = (req, res) => {};
+  // insert to database
+  const data = {
+    token: emailHash,
+    email,
+    password: passHash,
+  };
+
+  try {
+    await tb_user.create(data);
+
+    // return token
+    respon(200, res, { yourToken: emailHash }, "Please don't keep your token");
+  } catch (error) {
+    respon(400, res, null, "Bad Request please check your data");
+  }
+};
 
 // testing
 export const testing = async (req, res) => {

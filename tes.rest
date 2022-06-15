@@ -1,13 +1,14 @@
-GET http://localhost:3000/get-user/nxtrix060
+GET http://localhost:3000/get-user/$2b$10$qmomfBGglvtGpaRynkwV4Oug4tYdT4J9gCu45NBotffw3z7y8lqdi
 
 
 ### register
+POST http://localhost:3000/register
+Content-Type: application/json
 
-
-
-
-### login
-
+{
+    "email" : "nofrisdansitopu@gmail.com",
+    "password" : "user123"
+}
 
 ### Testing
 GET http://localhost:3000/testing
