@@ -1,22 +1,14 @@
 import { Sequelize, ValidationErrorItemOrigin } from "sequelize";
 
 // connect database
-const host = "localhost",
-  username = "nofrisdan",
+const username = "nofrisdan",
   password = "N03D0600",
   db = "belajar_login_system";
 
 const connectDb = new Sequelize(db, username, password, {
-  host,
+  host: "127.0.0.1",
   dialect: "mysql",
+  port: 3306,
 });
-
-try {
-  // ValidationErrorItemOrigin
-  console.log("Database Connected");
-} catch (error) {
-  //   console.log(error.message);
-  console.error("Unable connect to database");
-}
 
 export default connectDb;
