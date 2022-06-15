@@ -1,0 +1,11 @@
+GET http://localhost:3000/get-user/nxtrix060
+
+
+### register
+
+
+
+
+### login
+
+
